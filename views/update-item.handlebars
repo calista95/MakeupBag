@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<script src="updateitem.js"></script>
+</head>
+
+<body>
+	<h1 class="text-muted">Update {{item.name}}</h1>
+	<center>
+	<form id="update-item" action="/inventory" method="post">
+ 		<div class="form-group">
+			Name: <input type="text" name="name" value="{{item.name}}"></br>
+		</div>
+		<div class="form-group">
+			Type: <input type="text" name="type" value="{{item.type}}"</br>
+		</div>
+		<div class="form-group">
+			Price: <input type="number" name="price" value="{{item.price}}"</br>
+		</div>
+		<div class="form-group">
+			Purchase date: <input type="date" name="purchaseDate" value="{{item.purchaseDate}}"</br>
+		</div>
+		<div class="form-group">
+			Expiration date: <input type="date" name="expireDate" value="{{item.expireDate}}"</br>
+		</div>
+		<div class="form-group">
+			Rating: <input type="number" name="rating" value="{{item.rating}}"></br>
+		</div>
+		<div class="form-group">
+			Comments: <input type="text" name="comments" value="{{item.comments}}"></br>
+		</div>
+		<button class="btn btn-danger" a href="/inventory">Go back</button>
+		<button class="btn btn-info" onclick = "updateItem({{id}})">Update</button>
+	</form>
+	</center>
+
+</body>
+</html>
+

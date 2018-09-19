@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	 <meta charset="utf-8" />
+	 <!-- If IE use the latest rendering engine -->
+	 <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+	 <!-- Setthe page to the width ofte device and set the zoon level -->
+	 <meta name="viewport" content="width = device-width, initial-scal = 1">
+	 <title>View Inventory</title>
+	 <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+
+ <!--Nagivation bar-->
+
+     <nav class="navbar navbar-default">
+             <div class="container-fluid">
+             <ul class="nav navbar-nav pull-right">
+         	    <li><a href="index.html">Home</a></li>
+            	    <li class="active"><a href="#">View Inventory</a></li>
+	            <li><a href='/addItem'>Add New Item</a></li>
+		    <li><a href='/analysis'>Analysis</a></li>
+	     </ul>
+	     </div>
+     </nav>
+
+     <center><h1 class="text-muted">My Inventory </h1></center>
+	<form class="form-group" id='sortItems' action='' method=''>
+		Sort by: <select>
+				<option value="highest">Highest price</option>
+				<option value="lowest">Lowest price</option>
+				<option value="newest">Newest</option>
+				<option value="oldest">Oldest</option>
+			 </select>
+			 <input type="button" value="Go!" onclick="sortBy()">
+			 <!--<input class="btn btn-warning" type="submit" value="Go!">-->
+	</form>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="deleteitem.js"></script>
+<table class="table">
+	<thead>
+		<th>Name</th>
+		<th>Type</th>
+		<th>Price</th>
+		<th>Purchase</th>
+		<th>Expiration</th>
+		<th>Rating</th>
+		<th>Comment</th>
+		<th>Status</th> 
+	</thead>
+	<tbody>
+		{{#each items}}
+			<tr>
+				<td>{{this.name}}</td>
+				<td>{{this.type}}</td>
+				<td>{{this.price}}</td>
+				<td>{{this.purchaseDate}}</td>
+				<td>{{this.expireDate}}</td>
+				<td>{{this.rating}}</td>
+				<td>{{this.comments}}</td>
+				<td>{{this.status}}</td>	
+				<td><button class="btn btn-danger" onclick="deleteItem({{id}})">Delete</button></td>
+				<td><a href="/inventory/{{id}}">Update</a></td>
+				<td><button class="btn btn-info" onclick="markDone({{id}})">Mark Done</button></td>
+			</tr>	
+				{{/each}}
+	</tbody>
+			
+</table>
+
+
+</body>
+</html>
